@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trip | Nile Crown Travel</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="container nav"><a class="brand" href="index.html"><span class="logo">NC</span><span>Nile Crown Travel</span></a><nav><a href="index.html#trips">Trips</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></nav><a class="lang" href="trip-ar.html" id="langLink">العربية</a></div></header>
+<main><section class="trip-hero"><div class="container"><a class="back" href="index.html">← Back to trips</a><div class="eyebrow" id="tripTag"></div><h1 id="tripTitle"></h1><p id="tripIntro"></p></div></section>
+<section class="trip-content"><div class="container"><div class="trip-image" id="tripImage"></div><div class="trip-layout"><article><div class="trip-icon" id="tripIcon"></div><h2>About this trip</h2><p id="tripDesc"></p><div class="facts"><div><b>Destination</b><span id="tripDestination"></span></div><div><b>Duration</b><span id="tripDuration"></span></div><div><b>Price</b><span id="tripPrice"></span></div></div><h2 class="it-title">Suggested itinerary</h2><div class="itinerary" id="itinerary"></div></article><aside class="booking-box"><h3>Ready to travel?</h3><p>Ask us about dates, availability and the best option for your trip.</p><a class="btn primary full" id="wa" target="_blank">Book via WhatsApp</a><a class="btn outline full" href="index.html#contact">Contact us</a></aside></div></div></section>
+<div id="tripExtras" class="trip-extra"></div>
+<div class="sticky-book">
+  <a class="btn btn-primary" id="whatsappBook" href="#" target="_blank">
+    Book this trip on WhatsApp
+  </a>
+</div>
+
+<section class="section" id="booking">
+  <div class="container">
+    <div class="section-kicker">Booking request</div>
+    <h2>Send your trip details and we will contact you on WhatsApp</h2>
+    <form id="bookingForm" class="contact-form">
+      <div class="form-grid">
+        <label>Name<input id="bookName" required placeholder="Your name"></label>
+        <label>Email<input id="bookEmail" type="email" placeholder="Your email"></label>
+        <label>Travelers<input id="bookGuests" type="number" min="1" value="2" required></label>
+        <label>Preferred date<input id="bookDate" type="date"></label>
+      </div>
+      <label>Additional message<textarea id="bookMessage" rows="4" placeholder="Any details or special requests"></textarea></label>
+      <button class="btn btn-primary" type="submit">Send booking request via WhatsApp</button>
+    </form>
+  </div>
+</section>
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const id = new URLSearchParams(location.search).get('id') || 'luxor';
+  const name = document.getElementById('bookName').value.trim();
+  const email = document.getElementById('bookEmail').value.trim();
+  const guests = document.getElementById('bookGuests').value;
+  const date = document.getElementById('bookDate').value;
+  const msg = document.getElementById('bookMessage').value.trim();
+  const text = `New booking request from Nile Crown Travel%0A%0A$Trip: ${id}%0A$Name: ${name}%0A$Email: ${email || '-'}%0A$Travelers: ${guests}%0A$Preferred date: ${date || '-'}%0A$Message: ${msg || '-'}`;
+  window.open('https://wa.me/201010575983?text=' + text, '_blank');
+});
+</script>
+
+</main>
+<footer><div class="container footer"><div><b>Nile Crown Travel</b><br>Discover Egypt. Create memories.</div><div>© 2026 Nile Crown Travel</div></div></footer><script src="trip.js"></script></body></html>

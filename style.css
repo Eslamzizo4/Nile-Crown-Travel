@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--ink:#17211d;--green:#1d3028;--gold:#b88a3b;--gold2:#d7b36a;--sand:#f5efe3;--paper:#fffdf8;--muted:#6c6a63;--line:#e5dccb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7}a{text-decoration:none;color:inherit}.container{width:min(1160px,92%);margin:auto}
+.nav{min-height:78px;display:flex;align-items:center;gap:28px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px;margin-right:auto}.logo{width:44px;height:44px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:900;letter-spacing:-1px}.nav nav{display:flex;gap:24px}.nav nav a,.lang{font-size:14px;font-weight:600;color:#555}.nav nav a:hover,.lang:hover{color:var(--gold)}
+.hero{min-height:650px;display:grid;align-items:center;background:radial-gradient(circle at 82% 25%,rgba(215,179,106,.2),transparent 27%),linear-gradient(120deg,#14231d,#24382f 58%,#71542c);color:white;position:relative;overflow:hidden}.hero:before{content:"𓂀";position:absolute;right:4%;bottom:-95px;font-size:360px;line-height:1;color:white;opacity:.045}.hero:after{content:"NILE CROWN";position:absolute;right:8%;top:25%;font-family:"Cormorant Garamond",serif;font-size:22px;letter-spacing:8px;color:var(--gold2);opacity:.5}.inner{padding:105px 0;position:relative;z-index:1}.eyebrow{letter-spacing:2.4px;font-size:11px;font-weight:800;color:var(--gold);margin-bottom:13px}.hero h1,.trip-hero h1,h2{font-family:"Cormorant Garamond",Georgia,serif}.hero h1{font-size:clamp(55px,8vw,92px);line-height:.92;max-width:780px;margin:0 0 25px;font-weight:600}.hero p{font-size:19px;max-width:720px;color:#eee8db}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;justify-content:center;align-items:center;padding:13px 22px;border-radius:8px;border:1px solid transparent;font-weight:800;cursor:pointer;transition:.2s}.primary{background:var(--gold);color:#fff}.primary:hover{background:#9e752f;transform:translateY(-1px)}.outline{border-color:var(--gold);color:var(--gold)}.hero .outline{border-color:#fff;color:#fff}.hero .outline:hover{background:#fff;color:var(--green)}
+.section-head{padding:95px 0 38px}.section-head h2{font-size:52px;line-height:1;margin:0 0 12px}.section-head p{color:var(--muted);max-width:650px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-bottom:105px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:27px;transition:.25s;box-shadow:0 10px 35px rgba(55,40,15,.055);position:relative;overflow:hidden}.card:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}.card:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(55,40,15,.1)}.icon{font-size:37px;margin-bottom:18px}.tag{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:#9a702b;font-weight:800}.card h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:29px;margin:8px 0 5px}.card p{color:var(--muted);min-height:78px;font-size:14px}.price{font-weight:800;color:#9a702b;font-size:13px}
+.about{background:var(--sand);border-block:1px solid var(--line)}.about-wrap{display:grid;grid-template-columns:1.5fr .8fr;gap:70px;align-items:center;padding:92px 0}.about h2{font-size:50px;line-height:1.05;margin:0 0 18px}.about-box{background:var(--green);color:white;border-radius:16px;padding:30px;display:grid;gap:3px;border:1px solid #30493d;box-shadow:0 15px 40px rgba(20,35,29,.12)}.about-box strong{font-family:"Cormorant Garamond",serif;font-size:31px;color:var(--gold2);margin-top:10px}.about-box span{color:#ddd8cc}
+.contact{padding-bottom:100px}.contact-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:45px}.contact-info{background:var(--green);color:#fff;border-radius:16px;padding:38px}.contact-info h3{font-family:"Cormorant Garamond",serif;font-size:34px;margin-top:0}.contact-info p{color:#ddd8cc}.form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;display:grid;gap:16px;box-shadow:0 10px 35px rgba(55,40,15,.05)}.form>div{display:grid;gap:6px}.form label{font-size:13px;font-weight:700}.form input,.form select,.form textarea{font:inherit;border:1px solid #d9cfbd;border-radius:8px;padding:11px;background:#fff;color:var(--ink);outline:none}.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--gold)}.form textarea{min-height:120px;resize:vertical}.form button{font:inherit}
+.footer{border-top:1px solid var(--line);padding:27px 0;display:flex;justify-content:space-between;gap:20px;color:#777;font-size:13px}
+.trip-hero{background:radial-gradient(circle at 85% 20%,rgba(184,138,59,.18),transparent 25%),var(--green);color:#fff;padding:65px 0}.trip-hero h1{font-size:clamp(50px,7vw,78px);line-height:.95;margin:10px 0 16px}.trip-hero p{color:#ddd8cc;font-size:18px}.back{color:var(--gold2);font-weight:700;font-size:14px}.trip-content{padding:82px 0}.trip-layout{display:grid;grid-template-columns:1.5fr .7fr;gap:55px}.trip-icon{font-size:70px}.trip-content h2{font-size:48px;line-height:1;margin:12px 0}.trip-content article>p{color:var(--muted);font-size:16px;max-width:760px}.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:38px}.facts div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}.facts b,.facts span{display:block}.facts b{font-size:10px;letter-spacing:1.3px;color:#9a702b;text-transform:uppercase}.facts span{font-weight:700;margin-top:3px}.booking-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;height:max-content;box-shadow:0 15px 40px rgba(55,40,15,.08)}.booking-box h3{font-family:"Cormorant Garamond",serif;font-size:31px;margin-top:0}.booking-box p{color:var(--muted);font-size:14px}.full{width:100%;margin-top:10px}
+@media(max-width:900px){.nav nav{display:none}.grid{grid-template-columns:repeat(2,1fr)}.about-wrap,.contact-grid,.trip-layout{grid-template-columns:1fr}.hero{min-height:570px}.hero:after{display:none}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.hero h1{font-size:54px}.hero p{font-size:17px}.facts{grid-template-columns:1fr}.nav{gap:10px}.brand{font-size:15px}.logo{width:38px;height:38px}.actions .btn{width:100%}.section-head{padding-top:68px}.section-head h2,.about h2{font-size:42px}.trip-content{padding:58px 0}}
+
+/* Destination photography */
+.card{background-size:cover;background-position:center;min-height:310px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,14,.04) 20%,rgba(10,18,14,.88) 100%);z-index:0}
+.card>*{position:relative;z-index:1}.card p{color:#eee8db}.card .tag,.card .price{color:#e1bd72}
+.card:nth-child(1){background-image:url('https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1200&q=85')}
+.card:nth-child(2){background-image:url('https://images.unsplash.com/photo-1539650116574-75c0c6d7c6a0?auto=format&fit=crop&w=1200&q=85')}
+.card:nth-child(3){background-image:url('https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=1200&q=85')}
+.card:nth-child(4){background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85')}
+
+.highlights{background:#fff;border-bottom:1px solid var(--line)}.highlights-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:0}.highlights-inner div{padding:27px 20px;display:grid;grid-template-columns:42px 1fr;column-gap:12px;align-items:center;border-right:1px solid var(--line)}.highlights-inner div:first-child{border-left:1px solid var(--line)}.highlights-inner span{grid-row:span 2;font-size:28px;color:var(--gold);text-align:center}.highlights-inner b{font-size:14px}.highlights-inner small{font-size:11px;color:var(--muted)}@media(max-width:600px){.highlights-inner{grid-template-columns:1fr}.highlights-inner div,.highlights-inner div:first-child{border-inline:0;border-bottom:1px solid var(--line)}}
+
+.trip-image{height:390px;border-radius:18px;background-size:cover;background-position:center;margin-bottom:55px;box-shadow:0 18px 50px rgba(35,30,15,.13);position:relative;overflow:hidden}.trip-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,24,19,.22),transparent 55%)}.it-title{margin-top:55px!important}.itinerary{display:grid;gap:12px}.day{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:12px}.day strong{color:var(--gold);font-size:13px}.day span{color:var(--muted);font-size:14px}@media(max-width:600px){.trip-image{height:250px;margin-bottom:38px}.day{grid-template-columns:1fr;gap:4px}}
+
+
+/* --- Nile Crown Travel v2 enhancements --- */
+.trust-grid,.feature-grid,.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.trust-card,.feature-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(23,33,29,.06)}
+.trust-card .big,.feature-card .big{font-size:32px;margin-bottom:10px}
+.gallery-grid{grid-template-columns:repeat(4,1fr)}
+.gallery-item{min-height:240px;border-radius:18px;background-size:cover;background-position:center;overflow:hidden;position:relative}
+.gallery-item span{position:absolute;left:16px;bottom:14px;background:rgba(23,33,29,.78);color:#fff;padding:7px 12px;border-radius:999px;font-size:13px}
+.trip-extra{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
+.extra-box{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px}
+.extra-box h3{margin-top:0}
+.extra-box ul{padding-left:20px;line-height:1.9}
+.ar .extra-box ul{padding-left:0;padding-right:20px}
+.sticky-book{position:sticky;bottom:16px;z-index:5;margin-top:28px}
+.sticky-book .btn{width:100%;text-align:center;box-shadow:0 12px 30px rgba(23,33,29,.18)}
+.section-kicker{letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--gold);font-weight:700;margin-bottom:8px}
+.site-footer{padding:34px 0;border-top:1px solid var(--line);margin-top:60px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
+@media(max-width:800px){
+ .trust-grid,.feature-grid,.gallery-grid,.trip-extra{grid-template-columns:1fr}
+ .gallery-item{min-height:200px}
+ .footer-row{flex-direction:column;text-align:center}
+}
+
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.contact-form label{display:block;font-weight:700;margin-bottom:16px}
+.contact-form input,.contact-form textarea{display:block;width:100%;box-sizing:border-box;margin-top:8px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);font:inherit}
+.contact-form textarea{resize:vertical}
+@media(max-width:650px){.form-grid{grid-template-columns:1fr}}
+
+.nav-admin{margin-left:auto;font-size:13px;color:var(--gold);font-weight:700}

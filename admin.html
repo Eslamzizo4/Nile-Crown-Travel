@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nile Crown Travel — Admin</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{background:var(--sand)}
+.admin-wrap{max-width:1100px;margin:40px auto;padding:0 20px}
+.admin-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px}
+.admin-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:20px}
+.admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.admin-card input,.admin-card textarea{width:100%;box-sizing:border-box;margin-top:7px;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+.admin-card textarea{min-height:110px}
+.admin-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.note{font-size:14px;color:var(--muted);line-height:1.6}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#eee6d5;color:var(--green);font-size:12px;font-weight:700}
+@media(max-width:700px){.admin-grid{grid-template-columns:1fr}.admin-head{flex-direction:column;align-items:flex-start}}
+
+body{font-family:Arial,sans-serif;background:#f5efe3;color:#17211d}
+.admin-wrap{max-width:1050px}
+.admin-head h1{margin:4px 0 0;font-size:42px}
+.admin-card h2{margin-top:0}
+.admin-card label{font-size:14px;color:#4e514c}
+.btn{display:inline-block;padding:11px 18px;border-radius:10px;border:1px solid #d7c8aa;text-decoration:none;cursor:pointer;background:#fffdf8;color:#17211d}
+.btn-primary{background:#1d3028;color:white;border-color:#1d3028}
+.price-field input{border:2px solid var(--gold);background:#fffaf0}.price-field strong{color:var(--green)}</style>
+</head>
+<body>
+<div class="admin-wrap">
+  <div class="admin-head">
+    <div><div class="section-kicker">Nile Crown Travel</div><h1>Admin Dashboard</h1><p class="note">Edit your trips below — especially the prices — then tap Save changes.</p></div>
+    <a class="btn" href="index.html">View website</a>
+  </div>
+
+  <div class="admin-card">
+    <span class="badge">Browser editor</span>
+    <h2>Company details</h2>
+    <div class="admin-grid">
+      <label>WhatsApp number<input id="wa" value="201010575983"></label>
+      <label>Email<input id="email" value="ziade642@gmail.com"></label>
+    </div>
+  </div>
+
+  <div id="trips"></div>
+
+  <div class="admin-card">
+    <h2>Save changes</h2>
+    <p class="note">This dashboard saves edits in this browser using local storage. For changes to appear publicly to every visitor, the site will need a hosted database/backend connection. We can add that in the next step.</p>
+    <div class="admin-actions">
+      <button class="btn btn-primary" onclick="saveAll()">Save changes</button>
+      <button class="btn" onclick="resetAll()">Reset local edits</button>
+    </div>
+    <p id="status" class="note"></p>
+  </div>
+</div>
+<script src="trip.js"></script>
+<script>
+const ids=["luxor","cruise","cairo","redsea"];
+const saved=JSON.parse(localStorage.getItem("nct_admin")||"{}");
+function val(id,key,lang="en"){return saved[id]?.[lang]?.[key] ?? (trips[id]?.[lang]?.[key] || "")}
+function render(){
+ document.getElementById("trips").innerHTML=ids.map(id=>`
+ <div class="admin-card">
+  <h2>${trips[id]?.en?.title||id}</h2>
+  <div class="admin-grid">
+   <label>English title<input data-k="${id}.en.title" value="${val(id,"title")}"></label>
+   <label>Arabic title<input dir="rtl" data-k="${id}.ar.title" value="${val(id,"title","ar")}"></label>
+   <label class="price-field"><strong>English price</strong><input data-k="${id}.en.price" value="${val(id,"price")}"></label>
+   <label class="price-field"><strong>Arabic price</strong><input dir="rtl" data-k="${id}.ar.price" value="${val(id,"price","ar")}"></label>
+   <label>English image URL<input data-k="${id}.en.image" value="${val(id,"image")}"></label>
+   <label>Arabic image URL<input dir="rtl" data-k="${id}.ar.image" value="${val(id,"image","ar")}"></label>
+   <label style="grid-column:1/-1">English description<textarea data-k="${id}.en.desc">${val(id,"desc")}</textarea></label>
+   <label style="grid-column:1/-1">Arabic description<textarea dir="rtl" data-k="${id}.ar.desc">${val(id,"desc","ar")}</textarea></label>
+  </div>
+ </div>`).join("");
+}
+function saveAll(){
+ const out={};
+ document.querySelectorAll("[data-k]").forEach(el=>{
+   const [id,lang,key]=el.dataset.k.split(".");
+   out[id]??={}; out[id][lang]??={}; out[id][lang][key]=el.value;
+ });
+ localStorage.setItem("nct_admin",JSON.stringify(out));
+ localStorage.setItem("nct_company",JSON.stringify({wa:document.getElementById("wa").value,email:document.getElementById("email").value}));
+ document.getElementById("status").textContent="Saved in this browser ✓";
+}
+function resetAll(){localStorage.removeItem("nct_admin");localStorage.removeItem("nct_company");location.reload()}
+render();
+</script>
+</body>
+</html>
