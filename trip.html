@@ -37,6 +37,46 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
   const text = `New booking request from Nile Crown Travel%0A%0A$Trip: ${id}%0A$Name: ${name}%0A$Email: ${email || '-'}%0A$Travelers: ${guests}%0A$Preferred date: ${date || '-'}%0A$Message: ${msg || '-'}`;
   window.open('https://wa.me/201010575983?text=' + text, '_blank');
 });
+  <script>
+const SUPABASE_URL = "https://vlqzmqbshqxycwgiuov.supabase.co";
+const SUPABASE_KEY = "sb_publishable_2kdCMej4UhbTlmEcrqIoRg_nDGXvSeL";
+
+fetch(`${SUPABASE_URL}/rest/v1/trips?select=*&id=eq.1`, {
+  headers: {
+    apikey: SUPABASE_KEY,
+    Authorization: `Bearer ${SUPABASE_KEY}`
+  }
+})
+.then(response => {
+  if (!response.ok) throw new Error("Supabase connection failed");
+  return response.json();
+})
+.then(rows => {
+  if (!rows.length) return;
+
+  const trip = rows[0];
+
+  const ar = document.documentElement.lang === "ar";
+
+  const title = ar ? trip.title_ar : trip.title_en;
+  const price = ar ? trip.price_ar : trip.price_en;
+  const description = ar ? trip.description_ar : trip.description_en;
+  const image = ar ? trip.image_ar : trip.image_en;
+
+  const titleEl = document.getElementById("tripTitle");
+  const priceEl = document.getElementById("tripPrice");
+  const descEl = document.getElementById("tripDesc");
+  const imageEl = document.getElementById("tripImage");
+
+  if (titleEl && title) titleEl.textContent = title;
+  if (priceEl && price) priceEl.textContent = price;
+  if (descEl && description) descEl.textContent = description;
+  if (imageEl && image) {
+    imageEl.style.backgroundImage = `url("${image}")`;
+  }
+})
+.catch(error => console.error("Supabase:", error));
+</script>
 </script>
 
 </main>
