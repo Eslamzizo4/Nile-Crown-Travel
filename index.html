@@ -1,165 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nile Crown Travel | Discover Egypt</title>
+<meta name="description" content="Nile Crown Travel — memorable domestic journeys across Egypt.">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+<a class="brand" aria-label="Nile Crown Travel" href="index.html">
+<span class="logo">NC</span>
+<span>Nile Crown Travel</span>
+</a>
+
+<nav>
+<a href="#trips">Trips</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<a href="admin.html" class="nav-admin">Admin</a>
+</nav>
+
+<a class="lang" href="ar.html">العربية</a>
+
+</div>
+</header>
+
+
+<main>
+
+<section class="hero">
+<div class="container inner">
+
+<div class="eyebrow">EGYPT • HISTORY • NILE • CULTURE</div>
+
+<h1>Discover Egypt, beautifully.</h1>
+
+<p>
+Curated journeys across Egypt — from ancient temples and historic Cairo
+to unforgettable Nile cruises and Red Sea experiences.
+</p>
+
+<div class="actions">
+<a class="btn primary" href="#trips">Explore Trips</a>
+
+<a class="btn outline"
+target="_blank"
+href="https://wa.me/201010575983?text=Hello%20Nile%20Crown%20Travel%2C%20I%20would%20like%20to%20ask%20about%20your%20trips.">
+WhatsApp Us
+</a>
+</div>
+
+</div>
+</section>
+
+
+<section class="highlights">
+<div class="container highlights-inner">
+
+<div>
+<span>𓂀</span>
+<b>Ancient Egypt</b>
+<small>Archaeology & history</small>
+</div>
+
+<div>
+<span>⛵</span>
+<b>The Nile</b>
+<small>Unforgettable river journeys</small>
+</div>
+
+<div>
+<span>☀</span>
+<b>Red Sea</b>
+<small>Sea, nature & relaxation</small>
+</div>
+
+</div>
+</section>
+
+
+<section id="trips">
+<div class="container">
+
+<div class="section-head">
+<div class="eyebrow">OUR EXPERIENCES</div>
+<h2>Explore Egypt</h2>
+<p>Choose a journey and request your booking directly through WhatsApp.</p>
+</div>
+
+
+<div class="grid">
+
+
+<a class="card"
+data-trip-id="luxor"
+href="trip.html?id=luxor">
+
+<div class="icon">𓂀</div>
+<span class="tag">Upper Egypt</span>
+<h3>Luxor & Aswan</h3>
+<p>Discover temples, monuments and the heart of ancient Egypt.</p>
+<span class="price">Price on request</span>
+
+</a>
+
+
+<a class="card"
+data-trip-id="cruise"
+href="trip.html?id=cruise">
+
+<div class="icon">⛵</div>
+<span class="tag">Nile</span>
+<h3>Nile Cruises</h3>
+<p>Enjoy a Nile journey between historic cities and temples.</p>
+<span class="price">Price on request</span>
+
+</a>
+
+
+<a class="card"
+data-trip-id="cairo"
+href="trip.html?id=cairo">
+
+<div class="icon">🏛️</div>
+<span class="tag">History</span>
+<h3>Historic Cairo</h3>
+<p>Explore famous landmarks and cultural experiences.</p>
+<span class="price">Price on request</span>
+
+</a>
+
+
+<a class="card"
+data-trip-id="redsea"
+href="trip.html?id=redsea">
+
+<div class="icon">🌊</div>
+<span class="tag">Red Sea</span>
+<h3>Red Sea</h3>
+<p>Beaches, nature and memorable seaside experiences.</p>
+<span class="price">Price on request</span>
+
+</a>
+
+
+</div>
+</div>
+</section>
+
+
+<section id="about" class="about">
+<div class="container about-wrap">
+
+<div>
+
+<div class="eyebrow">NILE CROWN TRAVEL</div>
+
+<h2>Egypt from a local perspective.</h2>
+
+<p>
+We focus on memorable journeys inside Egypt, combining iconic
+archaeological sites with comfortable, well-planned travel experiences.
+</p>
+
+<p>
+Prices can be added and updated by you, while booking requests are sent
+directly to the company WhatsApp.
+</p>
+
+</div>
+
+
+<div class="about-box">
+
+<strong>100%</strong>
+<span>Focused on experiences inside Egypt.</span>
+
+<strong>24/7</strong>
+<span>Booking requests via WhatsApp.</span>
+
+</div>
+
+</div>
+</section>
+
+
+<section id="contact" class="contact">
+<div class="container">
+
+<div class="section-head">
+
+<div class="eyebrow">GET IN TOUCH</div>
+
+<h2>Plan your next journey</h2>
+
+<p>
+Send us your details and we'll receive your request on WhatsApp.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<h3>Nile Crown Travel</h3>
+
+<p>
+Domestic Egypt travel • Archaeological tourism • Nile cruises • Cultural experiences
+</p>
+
+<p>
+<b>WhatsApp</b><br>
++20 101 057 5983
+</p>
+
+<p>
+<b>Email</b><br>
+ziade642@gmail.com
+</p>
+
+</div>
+
+
+<form onsubmit="sendForm(event)" class="form">
+
+<div>
+<label for="name">Name</label>
+<input id="name" required>
+</div>
+
+<div>
+<label for="email">Email</label>
+<input id="email" type="email" required>
+</div>
+
+<div>
+<label for="trip">Trip</label>
+
+<select id="trip">
+
+<option value="">Select a trip</option>
+<option>Luxor & Aswan</option>
+<option>Nile Cruises</option>
+<option>Historic Cairo</option>
+<option>Red Sea</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="message">Message</label>
+
+<textarea
+id="message"
+placeholder="Tell us what you need...">
+</textarea>
+
+</div>
+
+
+<button class="btn primary" type="submit">
+Send via WhatsApp
+</button>
+
+</form>
+
+</div>
+</div>
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="container footer">
+
+<div>
+<b>Nile Crown Travel</b><br>
+Discover Egypt. Create memories.
+</div>
+
+<div>
+© 2026 Nile Crown Travel
+</div>
+
+</div>
+
+</footer>
+
+
 <script>
+
 const SUPABASE_URL =
-  "https://vlqzmqbshqxycwgiuov.supabase.co";
+"https://vlqzmqbshqxycwgiuov.supabase.co";
 
 const SUPABASE_KEY =
-  "sb_publishable_2kdCMej4UhbTlmEcrqIoRg_nDGXvSeL";
+"sb_publishable_2kdCMej4UhbTlmEcrqIoRg_nDGXvSeL";
 
 
 async function loadPrices() {
 
-  try {
+try {
 
-    const response = await fetch(
-      SUPABASE_URL + "/rest/v1/trips?select=*",
-      {
-        method: "GET",
-        headers: {
-          "apikey": SUPABASE_KEY,
-          "Authorization": "Bearer " + SUPABASE_KEY
-        }
-      }
-    );
+const response = await fetch(
+SUPABASE_URL + "/rest/v1/trips?select=*",
+{
+method: "GET",
 
-    if (!response.ok) {
-      throw new Error(await response.text());
-    }
+headers: {
+"apikey": SUPABASE_KEY,
+"Authorization": "Bearer " + SUPABASE_KEY
+}
 
-    const trips = await response.json();
+}
+);
 
-    console.log("SUPABASE TRIPS:", trips);
+if (!response.ok) {
+throw new Error(await response.text());
+}
 
+const trips = await response.json();
 
-    document.querySelectorAll("[data-trip-id]").forEach(card => {
-
-      const type =
-        card.getAttribute("data-trip-id");
-
-      let trip = null;
+console.log("SUPABASE TRIPS:", trips);
 
 
-      if (type === "luxor") {
+document.querySelectorAll("[data-trip-id]").forEach(card => {
 
-        trip = trips.find(t => {
+const type = card.getAttribute("data-trip-id");
 
-          const title =
-            String(t.title_en || "").toLowerCase();
-
-          return (
-            title.includes("luxor") ||
-            title.includes("aswan")
-          );
-
-        });
-
-      }
+let trip = null;
 
 
-      if (type === "cruise") {
+if (type === "luxor") {
 
-        trip = trips.find(t => {
+trip = trips.find(t => {
 
-          const title =
-            String(t.title_en || "").toLowerCase();
+const title =
+String(t.title_en || "").toLowerCase();
 
-          return (
-            title.includes("cruise") ||
-            title.includes("nile")
-          );
+return (
+title.includes("luxor") ||
+title.includes("aswan")
+);
 
-        });
-
-      }
-
-
-      if (type === "cairo") {
-
-        trip = trips.find(t => {
-
-          const title =
-            String(t.title_en || "").toLowerCase();
-
-          return (
-            title.includes("cairo") ||
-            title.includes("historic")
-          );
-
-        });
-
-      }
-
-
-      if (type === "redsea") {
-
-        trip = trips.find(t => {
-
-          const title =
-            String(t.title_en || "").toLowerCase();
-
-          return (
-            title.includes("red sea") ||
-            title.includes("redsea")
-          );
-
-        });
-
-      }
-
-
-      if (trip) {
-
-        const price =
-          card.querySelector(".price");
-
-        if (price && trip.price_en) {
-
-          price.textContent =
-            String(trip.price_en).trim();
-
-        }
-
-      }
-
-    });
-
-  } catch (error) {
-
-    console.error(
-      "PRICE ERROR:",
-      error
-    );
-
-  }
+});
 
 }
 
 
-/* WHATSAPP CONTACT FORM */
+if (type === "cruise") {
+
+trip = trips.find(t => {
+
+const title =
+String(t.title_en || "").toLowerCase();
+
+return (
+title.includes("cruise") ||
+title.includes("nile")
+);
+
+});
+
+}
+
+
+if (type === "cairo") {
+
+trip = trips.find(t => {
+
+const title =
+String(t.title_en || "").toLowerCase();
+
+return (
+title.includes("cairo") ||
+title.includes("historic")
+);
+
+});
+
+}
+
+
+if (type === "redsea") {
+
+trip = trips.find(t => {
+
+const title =
+String(t.title_en || "").toLowerCase();
+
+return (
+title.includes("red sea") ||
+title.includes("redsea")
+);
+
+});
+
+}
+
+
+if (trip && trip.price_en) {
+
+const price =
+card.querySelector(".price");
+
+if (price) {
+
+price.textContent =
+String(trip.price_en).trim();
+
+}
+
+}
+
+});
+
+} catch (error) {
+
+console.error("PRICE ERROR:", error);
+
+}
+
+}
+
 
 function sendForm(e) {
 
-  e.preventDefault();
+e.preventDefault();
 
-  const name =
-    document.getElementById("name")
-      .value.trim();
+const name =
+document.getElementById("name").value.trim();
 
-  const email =
-    document.getElementById("email")
-      .value.trim();
+const email =
+document.getElementById("email").value.trim();
 
-  const trip =
-    document.getElementById("trip")
-      .value ||
-      "Not specified";
+const trip =
+document.getElementById("trip").value ||
+"Not specified";
 
-  const message =
-    document.getElementById("message")
-      .value.trim() ||
-      "No additional message";
+const message =
+document.getElementById("message").value.trim() ||
+"No additional message";
 
 
-  const text =
+const text =
 `Hello Nile Crown Travel,
 
 Name: ${name}
@@ -168,19 +463,21 @@ Trip: ${trip}
 Message: ${message}`;
 
 
-  window.open(
-    "https://wa.me/201010575983?text=" +
-    encodeURIComponent(text),
-    "_blank"
-  );
+window.open(
+"https://wa.me/201010575983?text=" +
+encodeURIComponent(text),
+"_blank"
+);
 
 }
 
 
-/* START */
-
 document.addEventListener(
-  "DOMContentLoaded",
-  loadPrices
+"DOMContentLoaded",
+loadPrices
 );
+
 </script>
+
+</body>
+</html>
