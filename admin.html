@@ -28,8 +28,14 @@ header{
   margin-bottom:25px;
 }
 
-h1{font-size:40px;margin:5px 0}
-h2{margin-top:0}
+h1{
+  font-size:40px;
+  margin:5px 0;
+}
+
+h2{
+  margin-top:0;
+}
 
 .kicker{
   font-size:13px;
@@ -58,7 +64,8 @@ label{
   color:#555;
 }
 
-input,textarea{
+input,
+textarea{
   display:block;
   width:100%;
   margin-top:7px;
@@ -144,6 +151,7 @@ textarea{
 }
 
 @media(max-width:700px){
+
   header{
     flex-direction:column;
     align-items:flex-start;
@@ -154,7 +162,10 @@ textarea{
     grid-template-columns:1fr;
   }
 
-  h1{font-size:32px}
+  h1{
+    font-size:32px;
+  }
+
 }
 </style>
 </head>
@@ -164,19 +175,27 @@ textarea{
 <div class="wrap">
 
 <header>
-  <div>
-    <div class="kicker">Nile Crown Travel</div>
 
-    <h1>Admin Dashboard</h1>
+  <div>
+
+    <div class="kicker">
+      Nile Crown Travel
+    </div>
+
+    <h1>
+      Admin Dashboard
+    </h1>
 
     <p class="note">
       Edit your trips and prices, then press Save changes.
     </p>
+
   </div>
 
   <a class="btn" href="index.html">
     View website
   </a>
+
 </header>
 
 
@@ -195,19 +214,24 @@ textarea{
   <div class="grid">
 
     <label>
+
       WhatsApp number
 
       <input
         id="wa"
         value="201010575983">
+
     </label>
 
+
     <label>
+
       Email
 
       <input
         id="email"
         value="ziade642@gmail.com">
+
     </label>
 
   </div>
@@ -245,14 +269,19 @@ textarea{
       class="btn primary"
       type="button"
       onclick="saveAll()">
+
       Save changes
+
     </button>
+
 
     <button
       class="btn"
       type="button"
       onclick="loadTrips()">
+
       Reload trips
+
     </button>
 
   </div>
@@ -293,10 +322,6 @@ function escapeHtml(value){
 }
 
 
-/*
-  Show a readable message.
-*/
-
 function showStatus(message,type=""){
 
   const status =
@@ -325,17 +350,18 @@ async function loadTrips(){
 
   try{
 
-    const response = await fetch(
-      `${SUPABASE_URL}/rest/v1/trips?select=*&order=id.asc`,
-      {
-        method:"GET",
+    const response =
+      await fetch(
+        `${SUPABASE_URL}/rest/v1/trips?select=*&order=id.asc`,
+        {
+          method:"GET",
 
-        headers:{
-          apikey:SUPABASE_KEY,
-          Authorization:`Bearer ${SUPABASE_KEY}`
+          headers:{
+            apikey:SUPABASE_KEY,
+            Authorization:`Bearer ${SUPABASE_KEY}`
+          }
         }
-      }
-    );
+      );
 
 
     if(!response.ok){
@@ -357,463 +383,4 @@ async function loadTrips(){
     if(!Array.isArray(rows)){
 
       throw new Error(
-        "Supabase returned an unexpected response."
-      );
-
-    }
-
-
-    if(rows.length === 0){
-
-      box.innerHTML =
-        '<div class="card loading">No trips found.</div>';
-
-      return;
-
-    }
-
-
-    renderTrips(rows);
-
-
-  }catch(error){
-
-    console.error(error);
-
-    box.innerHTML = `
-
-      <div class="card">
-
-        <h2>
-          Could not load trips
-        </h2>
-
-        <p class="note">
-          ${escapeHtml(error.message)}
-        </p>
-
-      </div>
-
-    `;
-
-    showStatus(
-      "Could not load trips.",
-      "error"
-    );
-
-  }
-
-}
-
-
-/* ================================
-   DISPLAY TRIPS
-================================ */
-
-function renderTrips(rows){
-
-  const box =
-    document.getElementById("trips");
-
-
-  box.innerHTML = rows.map(trip => `
-
-    <div class="card">
-
-      <span class="badge">
-        Trip ID: ${escapeHtml(trip.id)}
-      </span>
-
-
-      <h2>
-        ${escapeHtml(
-          trip.title_en ||
-          trip.title_ar ||
-          "Trip"
-        )}
-      </h2>
-
-
-      <div class="grid">
-
-
-        <!-- ENGLISH TITLE -->
-
-        <label>
-
-          English title
-
-          <input
-            data-id="${escapeHtml(trip.id)}"
-            data-field="title_en"
-            value="${escapeHtml(trip.title_en)}">
-
-        </label>
-
-
-        <!-- ARABIC TITLE -->
-
-        <label>
-
-          Arabic title
-
-          <input
-            dir="rtl"
-            data-id="${escapeHtml(trip.id)}"
-            data-field="title_ar"
-            value="${escapeHtml(trip.title_ar)}">
-
-        </label>
-
-
-        <!-- ENGLISH PRICE -->
-
-        <label class="price">
-
-          <strong>
-            English price
-          </strong>
-
-          <input
-            type="text"
-            inputmode="decimal"
-            data-id="${escapeHtml(trip.id)}"
-            data-field="price_en"
-            value="${escapeHtml(trip.price_en)}">
-
-        </label>
-
-
-        <!-- ARABIC PRICE -->
-
-        <label class="price">
-
-          <strong>
-            Arabic price
-          </strong>
-
-          <input
-            dir="rtl"
-            type="text"
-            inputmode="decimal"
-            data-id="${escapeHtml(trip.id)}"
-            data-field="price_ar"
-            value="${escapeHtml(trip.price_ar)}">
-
-        </label>
-
-
-        <!-- ENGLISH IMAGE -->
-
-        <label>
-
-          English image URL
-
-          <input
-            data-id="${escapeHtml(trip.id)}"
-            data-field="image_en"
-            value="${escapeHtml(trip.image_en)}">
-
-        </label>
-
-
-        <!-- ARABIC IMAGE -->
-
-        <label>
-
-          Arabic image URL
-
-          <input
-            dir="rtl"
-            data-id="${escapeHtml(trip.id)}"
-            data-field="image_ar"
-            value="${escapeHtml(trip.image_ar)}">
-
-        </label>
-
-
-        <!-- ENGLISH DESCRIPTION -->
-
-        <label style="grid-column:1/-1">
-
-          English description
-
-          <textarea
-            data-id="${escapeHtml(trip.id)}"
-            data-field="description_en">${escapeHtml(trip.description_en)}</textarea>
-
-        </label>
-
-
-        <!-- ARABIC DESCRIPTION -->
-
-        <label style="grid-column:1/-1">
-
-          Arabic description
-
-          <textarea
-            dir="rtl"
-            data-id="${escapeHtml(trip.id)}"
-            data-field="description_ar">${escapeHtml(trip.description_ar)}</textarea>
-
-        </label>
-
-
-      </div>
-
-    </div>
-
-  `).join("");
-
-}
-
-
-/* ================================
-   SAVE ALL TRIPS
-================================ */
-
-async function saveAll(){
-
-  const button =
-    document.getElementById("saveBtn");
-
-
-  button.disabled = true;
-
-
-  showStatus(
-    "Saving changes..."
-  );
-
-
-  const updates = {};
-
-
-  document
-    .querySelectorAll("[data-id][data-field]")
-    .forEach(input => {
-
-      const id =
-        input.dataset.id;
-
-      const field =
-        input.dataset.field;
-
-
-      if(!updates[id]){
-
-        updates[id] = {};
-
-      }
-
-
-      let value =
-        input.value.trim();
-
-
-      /*
-        Keep prices as numbers when possible.
-        This works if Supabase price columns are numeric.
-      */
-
-      if(
-        field === "price_en" ||
-        field === "price_ar"
-      ){
-
-        if(value !== ""){
-
-          const numberValue =
-            Number(value);
-
-          if(!Number.isNaN(numberValue)){
-
-            value = numberValue;
-
-          }
-
-        }
-
-      }
-
-
-      updates[id][field] =
-        value;
-
-    });
-
-
-  try{
-
-
-    const ids =
-      Object.keys(updates);
-
-
-    if(ids.length === 0){
-
-      showStatus(
-        "There are no changes to save."
-      );
-
-      button.disabled = false;
-
-      return;
-
-    }
-
-
-    /*
-      Update each trip separately.
-    */
-
-    for(const id of ids){
-
-      const response =
-        await fetch(
-          `${SUPABASE_URL}/rest/v1/trips?id=eq.${encodeURIComponent(id)}`,
-          {
-            method:"PATCH",
-
-            headers:{
-              apikey:SUPABASE_KEY,
-              Authorization:`Bearer ${SUPABASE_KEY}`,
-              "Content-Type":"application/json",
-              Prefer:"return=representation"
-            },
-
-            body:
-              JSON.stringify(updates[id])
-          }
-        );
-
-
-      if(!response.ok){
-
-        const errorText =
-          await response.text();
-
-
-        throw new Error(
-          `Trip ${id} (${response.status}): ${errorText}`
-        );
-
-      }
-
-    }
-
-
-    /*
-      Save company information locally.
-    */
-
-    localStorage.setItem(
-      "nct_company",
-      JSON.stringify({
-
-        wa:
-          document.getElementById("wa").value.trim(),
-
-        email:
-          document.getElementById("email").value.trim()
-
-      })
-    );
-
-
-    showStatus(
-      "All changes saved successfully ✓",
-      "success"
-    );
-
-
-    /*
-      Reload from Supabase so we know
-      the new values really exist there.
-    */
-
-    await loadTrips();
-
-
-    showStatus(
-      "All changes saved successfully ✓",
-      "success"
-    );
-
-
-  }catch(error){
-
-    console.error(error);
-
-
-    showStatus(
-      "Save failed: " + error.message,
-      "error"
-    );
-
-  }
-
-
-  button.disabled = false;
-
-}
-
-
-/* ================================
-   COMPANY DATA
-================================ */
-
-function loadCompany(){
-
-  try{
-
-    const saved =
-      JSON.parse(
-        localStorage.getItem("nct_company") || "null"
-      );
-
-
-    if(!saved)
-      return;
-
-
-    if(saved.wa){
-
-      document.getElementById("wa").value =
-        saved.wa;
-
-    }
-
-
-    if(saved.email){
-
-      document.getElementById("email").value =
-        saved.email;
-
-    }
-
-
-  }catch(error){
-
-    console.error(
-      "Company data error:",
-      error
-    );
-
-  }
-
-}
-
-
-/* ================================
-   START
-================================ */
-
-loadCompany();
-
-loadTrips();
-
-</script>
-
-</body>
-</html>
+        "Supabase returned
